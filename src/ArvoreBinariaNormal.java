@@ -68,5 +68,37 @@ public class ArvoreBinariaNormal {
         }
     }
 
+    public int menor(Node no){
+        int menor = no.getInfo();
+        while (no.getEsquerda() != null){
+            menor = no.getEsquerda().getInfo();
+            no = no.getEsquerda();
+        }
+        return  menor;
+    }
 
+    private Node remover(Node raiz, int valor){
+        if (raiz == null){
+            return raiz;
+        } else {
+            if (valor < raiz.getInfo()){
+                raiz.setEsquerda(remover(raiz.getEsquerda(), valor));
+            } else if (valor > raiz.getInfo()){
+                raiz.setDireita(remover(raiz.getDireita(), valor));
+            } else {
+                if (raiz.getEsquerda() == null){
+                    return raiz.getDireita();
+                } else if (raiz.getDireita() == null) {
+                    return raiz.getEsquerda();
+                }
+                raiz.setInfo(menor(raiz.getDireita()));
+                raiz.setDireita(remover(raiz.getDireita(), raiz.getInfo()));
+            }
+        }
+        return raiz;
+    }
+
+    public void remove(int valor){
+        raiz = remover(raiz, valor);
+    }
 }
