@@ -53,4 +53,20 @@ public class ArvoreBinariaNormal {
             System.out.print(atual.getInfo() + " ");
         }
     }
+
+    public boolean busca(Node raiz, int valor){
+        if (raiz == null){
+            return false;
+        } else {
+            if (valor < raiz.getInfo()){
+                return busca(raiz.getEsquerda(), valor);
+            } else if (valor > raiz.getInfo()) {
+                return busca(raiz.getDireita(), valor);
+            } else {
+                return true;
+            }
+        }
+    }
+
+
 }
