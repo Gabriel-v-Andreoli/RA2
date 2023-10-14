@@ -23,6 +23,10 @@ public class Main {
         arvore.remove(6);
         arvore.emOrdem(arvore.getRaiz());
         System.out.println();
-        System.out.println(arvore.busca(arvore.getRaiz(), 8));
+        System.out.println(arvore.busca(arvore.getRaiz(), 6));
+        arvore.remove(6);
+        arvore.emOrdem(arvore.getRaiz());
+        System.out.println();
+        System.out.println(arvore.busca(arvore.getRaiz(), 6));
     }
 }
