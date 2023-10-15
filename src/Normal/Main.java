@@ -8,7 +8,7 @@ public class Main {
         ArvoreBinariaNormal arvore = new ArvoreBinariaNormal();
         Random random = new Random();
         long inicio = System.nanoTime();
-        for (int i = 0; i < 20000; i++) {
+        for (int i = 0; i < 10000; i++) {
             arvore.inserir(random.nextInt());
         }
         long fim = System.nanoTime();

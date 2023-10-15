@@ -62,8 +62,10 @@ public class ArvoreAVL {
         }
         if (valor < atual.getInfo()) {
             atual.setEsquerda(iRecurcao(atual.getEsquerda(), valor));
-        } else {
+        } else if (valor > atual.getInfo()){
             atual.setDireita(iRecurcao(atual.getDireita(), valor));
+        } else {
+            return atual;
         }
         atual.setAltura(1 + maior(atual.getEsquerda(), atual.getDireita()));
         int balance = balanco(atual);

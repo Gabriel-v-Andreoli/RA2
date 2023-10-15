@@ -20,8 +20,10 @@ public class ArvoreBinariaNormal {
         } else {
             if (valor < atual.getInfo()){
                 atual.setEsquerda(recurcao(atual.getEsquerda(), valor));
-            } else {
+            } else if (valor > atual.getInfo()){
                 atual.setDireita(recurcao(atual.getDireita(), valor));
+            } else {
+                return atual;
             }
         }
 
