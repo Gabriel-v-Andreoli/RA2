@@ -56,16 +56,16 @@ public class ArvoreBinariaNormal {
         }
     }
 
-    public Node busca(Node raiz, int valor){
-        if (raiz == null){
+    public Node busca(Node atual, int valor){
+        if (atual == null){
             return null;
         } else {
-            if (valor < raiz.getInfo()){
-                return busca(raiz.getEsquerda(), valor);
-            } else if (valor > raiz.getInfo()) {
-                return busca(raiz.getDireita(), valor);
+            if (valor < atual.getInfo()){
+                return busca(atual.getEsquerda(), valor);
+            } else if (valor > atual.getInfo()) {
+                return busca(atual.getDireita(), valor);
             } else {
-                return raiz;
+                return atual;
             }
         }
     }
@@ -79,25 +79,25 @@ public class ArvoreBinariaNormal {
         return  menor;
     }
 
-    private Node remover(Node raiz, int valor){
-        if (raiz == null){
-            return raiz;
+    private Node remover(Node atual, int valor){
+        if (atual == null){
+            return atual;
         } else {
-            if (valor < raiz.getInfo()){
-                raiz.setEsquerda(remover(raiz.getEsquerda(), valor));
-            } else if (valor > raiz.getInfo()){
-                raiz.setDireita(remover(raiz.getDireita(), valor));
+            if (valor < atual.getInfo()){
+                atual.setEsquerda(remover(atual.getEsquerda(), valor));
+            } else if (valor > atual.getInfo()){
+                atual.setDireita(remover(atual.getDireita(), valor));
             } else {
-                if (raiz.getEsquerda() == null){
-                    return raiz.getDireita();
-                } else if (raiz.getDireita() == null) {
-                    return raiz.getEsquerda();
+                if (atual.getEsquerda() == null){
+                    return atual.getDireita();
+                } else if (atual.getDireita() == null) {
+                    return atual.getEsquerda();
                 }
-                raiz.setInfo(menor(raiz.getDireita()));
-                raiz.setDireita(remover(raiz.getDireita(), raiz.getInfo()));
+                atual.setInfo(menor(atual.getDireita()));
+                atual.setDireita(remover(atual.getDireita(), atual.getInfo()));
             }
         }
-        return raiz;
+        return atual;
     }
 
     public void remove(int valor){
