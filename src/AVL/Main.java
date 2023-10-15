@@ -1,11 +1,10 @@
-package Normal;
-
+package AVL;
 
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        ArvoreBinariaNormal arvore = new ArvoreBinariaNormal();
+        ArvoreAVL arvore = new ArvoreAVL();
         Random random = new Random();
         long inicio = System.nanoTime();
         for (int i = 0; i < 20000; i++) {
@@ -16,4 +15,6 @@ public class Main {
         long resultado = fim - inicio;
         System.out.println(resultado);
     }
+
+
 }
