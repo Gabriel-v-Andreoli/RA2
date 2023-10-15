@@ -91,7 +91,7 @@ public class ArvoreAVL {
         raiz = iRecurcao(raiz, valor);
     }
 
-    public Node encontrarMenorValor(Node no) {
+    public Node MenorValor(Node no) {
         Node atual = no;
         while (atual.getEsquerda() != null) {
             atual = atual.getEsquerda();
@@ -117,15 +117,13 @@ public class ArvoreAVL {
                         atual = temp;
                     }
                 } else {
-                    Node temp = encontrarMenorValor(atual.getDireita());
+                    Node temp = MenorValor(atual.getDireita());
                     atual.setInfo(temp.getInfo());
                     atual.setDireita(rRecurcao(atual.getDireita(), temp.getInfo()));
                 }
             }
         }
-        if (atual == null) {
-            return atual;
-        } else {
+        if (atual != null) {
             atual.setAltura(1 + maior(atual.getEsquerda(), atual.getDireita()));
             int balancoAtual = balanco(atual);
             if (balancoAtual > 1 && balanco(atual.getEsquerda()) >= 0) {
@@ -143,7 +141,9 @@ public class ArvoreAVL {
                 return giraEsquerda(atual);
             }
             return atual;
+
         }
+        return atual;
     }
 
     public void remover(int valor) {
