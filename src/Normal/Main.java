@@ -1,3 +1,7 @@
+package Normal;
+
+import Normal.ArvoreBinariaNormal;
+
 import java.util.Random;
 
 public class Main {

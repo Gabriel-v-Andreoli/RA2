@@ -1,3 +1,5 @@
+package Normal;
+
 public class ArvoreBinariaNormal {
     private Node raiz;
 
@@ -54,16 +56,16 @@ public class ArvoreBinariaNormal {
         }
     }
 
-    public boolean busca(Node raiz, int valor){
+    public Node busca(Node raiz, int valor){
         if (raiz == null){
-            return false;
+            return null;
         } else {
             if (valor < raiz.getInfo()){
                 return busca(raiz.getEsquerda(), valor);
             } else if (valor > raiz.getInfo()) {
                 return busca(raiz.getDireita(), valor);
             } else {
-                return true;
+                return raiz;
             }
         }
     }

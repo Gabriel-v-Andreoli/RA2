@@ -1,3 +1,5 @@
+package Normal;
+
 public class Node {
     private Node esquerda;
     private Node direita;
